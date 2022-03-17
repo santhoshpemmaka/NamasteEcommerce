@@ -102,9 +102,6 @@ const HeaderMain = () => {
 						<li className='li-tag-header card-header'>
 							<a className='a-tag-header-right' href='./checkout.html'>
 								<i className='fas fa-shopping-cart header-icon'>
-									{/* {itemCount ? (
-											<span className='cart-number'>{itemCount}</span>
-										) : null} */}
 									<span className='cart-number'>0</span>
 								</i>
 								<span>Cart</span>
