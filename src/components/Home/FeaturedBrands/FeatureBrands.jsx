@@ -1,9 +1,6 @@
 import React from "react";
 import "./FeaturedBrands.scss";
-import First from "../FeaturedBrands/BrandAssests/brand1.jpg";
-import Second from "../FeaturedBrands/BrandAssests/brand2.png";
-import Thrid from "../FeaturedBrands/BrandAssests/brand3.jpg";
-import Four from "../FeaturedBrands/BrandAssests/brand4.png";
+import {First, Second, Thrid, Four} from "./BrandAssests";
 const FeatureBrands = () => {
 	const brandImages = [
 		{

@@ -8,7 +8,7 @@ const SlideContent = ({activeIndex, imageSlider}) => {
 					<div
 						key={index}
 						className={index === activeIndex ? "slides active" : "inactive"}>
-						<img className='slide-image' src={slide.urls} alt='' />
+						<img className='slide-image' src={slide.urls} alt='product-image' />
 					</div>
 				))}
 		</section>
