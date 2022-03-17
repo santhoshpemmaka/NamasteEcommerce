@@ -1,0 +1,124 @@
+.productlisting-container {
+	width: 80%;
+	padding: 1rem;
+}
+.grid-3-columnlayout {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: center;
+	grid-column-gap: 2rem;
+	grid-row-gap: 3.5rem;
+	max-width: 85rem;
+	margin: 0 auto;
+}
+.product-listing-card {
+	max-width: 240px;
+	min-height: 400px;
+	background-color: var(--complimentary-text-color);
+	border-radius: 10px;
+	position: relative;
+	margin: 0 1rem;
+	margin-bottom: 1rem;
+	.product-listing-image {
+		width: 240px;
+		height: 250px;
+		display: flex;
+		.product-responsive-image {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.product-listing-description {
+		margin: 1rem 1.5rem;
+		padding: 0.5rem 0;
+		h4 {
+			font-size: 1.6rem;
+			color: var(--primary-text-color);
+		}
+		p {
+			padding: 0.5rem 0;
+			font-size: 1.3rem;
+			color: #535766;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.product-listing-price {
+			padding: 0 0.25rem;
+		}
+		.actual-price {
+			font-size: 1.25rem;
+			text-decoration: line-through;
+		}
+		.discount-price {
+			font-size: 1.6rem;
+			font-weight: bold;
+			padding-left: 0;
+		}
+		.discount-offer {
+			font-size: 1.25rem;
+			color: #ff905a;
+		}
+	}
+	.product-listing-btn {
+		text-decoration: none;
+		font-size: 1.6rem;
+		padding: 1rem 1.6rem;
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+		margin: 0 1rem;
+		border: none;
+		width: 90%;
+		cursor: pointer;
+		.product-listing-icon {
+			margin-right: 0.5rem;
+		}
+	}
+	.product-in-stock {
+		color: var(--complimentary-text-color);
+		background-color: var(--primary-color);
+	}
+	.product-out-stock {
+		background-color: lightgray;
+		cursor: none;
+		color: var(--complimentary-text-color);
+	}
+	.product-listing-rating {
+		position: absolute;
+		min-width: 60px;
+		height: 20px;
+		padding: 3px 5px;
+		font-size: 1.3rem;
+		background-color: var(--primary-color);
+		border-radius: 3px;
+		color: var(--complimentary-text-color);
+		bottom: 15rem;
+		left: 1rem;
+	}
+	.product-listing-new {
+		position: absolute;
+		min-width: 60px;
+		height: 20px;
+		padding: 3px 5px;
+		font-size: 1.3rem;
+		background-color: var(--primary-color);
+		border-radius: 3px;
+		color: var(--complimentary-text-color);
+		text-align: center;
+		bottom: 36rem;
+	}
+	.product-listing-wishicon {
+		position: absolute;
+		padding: 3px 5px;
+		border-radius: 3px;
+		bottom: 36rem;
+		right: 1rem;
+		color: lightblue;
+		font-size: 2.2rem;
+        cursor: pointer;
+	}
+    .product-listing-wishicon:hover{
+        color: var(--primary-color);
+    }
+}
