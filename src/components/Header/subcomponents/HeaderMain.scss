@@ -120,42 +120,6 @@
     font-weight: 500;
     color: #282c3f;
 }
-.space-3rem{
-    width: 100%;
-    height: 4rem;
-}
-.container-body-ecommerce{
-    display: flex;
-}
-.contianer-body-nav{
-    width: 20%;
-    padding: 0 1rem 1rem;
-    margin-left: 1rem;
-}
-.nav-category{
-    margin: 2rem 0;
-}
-.category-heading{
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: var(--primary-text-color);
-}
-.nav-options{
-    display: flex;
-    padding: 1rem 0rem;
-    align-items: center;
-}
-.category-checkbox{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 2px solid var(--primary-color);
-}
-.category-text{
-    font-size: 1.6rem;
-    margin-left: 1rem;
-}
 .card-header{
     position: relative;
 }
