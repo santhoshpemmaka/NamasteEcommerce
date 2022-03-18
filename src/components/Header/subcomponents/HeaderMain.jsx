@@ -92,20 +92,20 @@ const HeaderMain = () => {
 							</a>
 						</li>
 						<li className='li-tag-header'>
-							<a className='a-tag-header-right' href='./checkout.html'>
+							<Link className='a-tag-header-right' to='/wishlist'>
 								<i className='fas fa-heart header-icon'>
 									<span className='wishlist-number'>0</span>
 								</i>
 								<span>Wishlist</span>
-							</a>
+							</Link>
 						</li>
 						<li className='li-tag-header card-header'>
-							<a className='a-tag-header-right' href='./checkout.html'>
+							<Link className='a-tag-header-right' to='/cart'>
 								<i className='fas fa-shopping-cart header-icon'>
 									<span className='cart-number'>0</span>
 								</i>
 								<span>Cart</span>
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

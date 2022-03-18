@@ -1,15 +1,18 @@
-import React, {useState} from "react";
-import "./ProductListing.scss";
-import productData from "./Product.js";
-const ProductListing = () => {
-	const [statusCart, setstatusCart] = useState(false);
+import React from "react";
+import "./WishList.scss";
+import wishlistproducts from "./WishProduct";
+const WishList = () => {
 	return (
-		<div className='productlisting-container'>
+		<div className='wishlist-container'>
 			<div className='spacer-3rem'></div>
-			<div className='grid-3-columnlayout'>
-				{productData &&
-					productData.length &&
-					productData.map((product) => (
+			<h1>
+				My WishList
+				<span> 4 Items</span>{" "}
+			</h1>
+			<div className='grid-4-column-layout-wishlist'>
+				{wishlistproducts &&
+					wishlistproducts.length &&
+					wishlistproducts.map((product) => (
 						<div className='product-listing-card' key={product.id}>
 							<div className='product-listing-image'>
 								<img
@@ -53,7 +56,7 @@ const ProductListing = () => {
 								<div className='product-listing-new'>New</div>
 							)}
 
-							<i className='fas fa-heart product-listing-wishicon'></i>
+							<i className='fas fa-times product-listing-wishicon'></i>
 						</div>
 					))}
 			</div>
@@ -62,4 +65,4 @@ const ProductListing = () => {
 	);
 };
 
-export default ProductListing;
+export default WishList;
