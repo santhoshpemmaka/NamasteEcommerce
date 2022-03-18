@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import "./ProductListing.scss";
 import productData from "./Product.js";
 const ProductListing = () => {
-	console.log(productData);
 	const [statusCart, setstatusCart] = useState(false);
 	return (
 		<div className='productlisting-container'>
