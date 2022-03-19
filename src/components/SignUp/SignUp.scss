@@ -42,10 +42,24 @@
 			border: 2px solid var(--border-color);
 			margin: 0.5rem 0;
 			outline: none;
+			font-size: 1.6rem;
 		}
 
 		.signup-input:focus {
 			border: 2px solid var(--primary-color);
+		}
+		.show-password {
+			position: relative;
+			width: 100%;
+			flex: 1;
+			display: flex;
+			.password-icon {
+				position: absolute;
+				font-size: 19px;
+				right: 1rem;
+				cursor: pointer;
+                top: 1.5rem;
+			}
 		}
 	}
 	.terms-conditons {

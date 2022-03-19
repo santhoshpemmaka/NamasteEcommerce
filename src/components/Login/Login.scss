@@ -26,41 +26,52 @@
 			border: 2px solid var(--border-color);
 			margin: 0.5rem 0;
 			outline: none;
+			font-size: 1.6rem;
 		}
-        .login-input:focus {
-            border: 2px solid var(--primary-color);
-        }
-        .forgot-password {
-            padding: 1rem 0;
-            margin: 6rem 0;
-            font-size: 1.4rem;
-            color: #ff4f6c;
-            line-height: 2rem;
-            cursor: pointer;
-        }
-        .forgot-alink {
-            text-decoration: none;
-        }
-        .login-btn {
-            background-color: var(--primary-color);
-            border: none;
-            color: var(--complimentary-text-color);
-            font-size: 1.6rem;
-            margin-top: 2rem;
-            letter-spacing: 0.15rem;
-            margin-bottom: 2rem;
-            cursor: pointer;
-        }
-        .login-btn:hover {
-            background-color: var(--dark-primary-color);
-        }
-        .login-text {
-            color: #282c3f;
-            font-size: 1.4rem;
-            font-weight: 400;
-        }
-        .login-text > a {
-            color: inherit;
-        }
-}
+		.login-input:focus {
+			border: 2px solid var(--primary-color);
+		}
+		.login-password {
+			position: relative;
+			.password-icon {
+				position: absolute;
+				font-size: 19px;
+				right: 1rem;
+				cursor: pointer;
+                top: 1.5rem;
+			}
+		}
+		.forgot-password {
+			padding: 1rem 0;
+			margin: 6rem 0;
+			font-size: 1.4rem;
+			color: #ff4f6c;
+			line-height: 2rem;
+			cursor: pointer;
+		}
+		.forgot-alink {
+			text-decoration: none;
+		}
+		.login-btn {
+			background-color: var(--primary-color);
+			border: none;
+			color: var(--complimentary-text-color);
+			font-size: 1.6rem;
+			margin-top: 2rem;
+			letter-spacing: 0.15rem;
+			margin-bottom: 2rem;
+			cursor: pointer;
+		}
+		.login-btn:hover {
+			background-color: var(--dark-primary-color);
+		}
+		.login-text {
+			color: #282c3f;
+			font-size: 1.4rem;
+			font-weight: 400;
+		}
+		.login-text > a {
+			color: inherit;
+		}
+	}
 }
