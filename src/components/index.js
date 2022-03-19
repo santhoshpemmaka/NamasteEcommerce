@@ -4,5 +4,6 @@ import Home from "./Home/Home";
 import ProductPage from "./ProductPage/ProductPage";
 import WishList from "./WishList/WishList";
 import CartItem from "./CartItem/CartItem";
-
-export {Header, Home, Footer, ProductPage, WishList, CartItem};
+import Login from "./Login/Login";
+import SignUp from "./SignUp/SignUp";
+export {Header, Home, Footer, ProductPage, WishList, CartItem, Login, SignUp};

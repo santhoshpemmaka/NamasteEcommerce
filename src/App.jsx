@@ -7,6 +7,8 @@ import {
 	ProductPage,
 	WishList,
 	CartItem,
+	Login,
+	SignUp,
 } from "./components";
 
 function App() {
@@ -16,8 +18,10 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/shop' element={<ProductPage />} />
-				<Route path='/wishlist' element={<WishList />} />{" "}
+				<Route path='/wishlist' element={<WishList />} />
 				<Route path='/cart' element={<CartItem />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/signup' element={<SignUp />} />
 			</Routes>
 			<Footer />
 		</div>

@@ -86,10 +86,10 @@ const HeaderMain = () => {
 					</div>
 					<ul className='ul-tag-header ul-right'>
 						<li className='li-tag-header hide-in-mobile'>
-							<a className='a-tag-header-right' href='./login.html'>
+							<Link className='a-tag-header-right' to='/login'>
 								<i className='fas fa-user header-icon'></i>
 								<span>Login</span>
-							</a>
+							</Link>
 						</li>
 						<li className='li-tag-header'>
 							<Link className='a-tag-header-right' to='/wishlist'>
