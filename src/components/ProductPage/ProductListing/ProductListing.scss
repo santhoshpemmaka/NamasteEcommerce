@@ -114,13 +114,15 @@
 		border-radius: 3px;
 		bottom: 36rem;
 		right: 1rem;
-		color: lightblue;
 		font-size: 2.2rem;
         cursor: pointer;
 	}
-    .product-listing-wishicon:hover{
-        color: var(--primary-color);
-    }
+	.wish-active{
+		color: var(--primary-color);
+	}
+    .wish-inactive{
+		color: lightblue;
+	}
 }
 
 @media only screen and (max-width:768px){

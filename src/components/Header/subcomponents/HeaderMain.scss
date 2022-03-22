@@ -56,7 +56,7 @@
 }
 .label-name {
 	font-size: 2rem;
-	color: #282c3f;
+	color: var(--primary-text-color);
 	margin-left: 1rem;
 	cursor: pointer;
 	font-weight: 500;
@@ -123,7 +123,7 @@
     font-size: 1.4rem;
     margin-top: 0.4rem;
     font-weight: 500;
-    color: #282c3f;
+    color: var(--primary-text-color)
 }
 .card-header{
     position: relative;
@@ -138,8 +138,9 @@
     border-radius: 50%;
     display: flex;
     align-items: center;
-    border: 2px solid #e6e6e6;
-    justify-content: center
+    border: 2px solid var(--border-color);
+    justify-content: center;
+    color : var(--complimentary-text-color) !important;
 }
 .wishlist-number{
     right: 10rem;

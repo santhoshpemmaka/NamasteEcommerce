@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import "./HeaderMain.scss";
 import {Link, NavLink} from "react-router-dom";
+import {useStateContext} from "../../../Context/StateProvider";
 const HeaderMain = () => {
 	const [showNav, setshowNav] = useState(false);
+	const {state} = useStateContext();
+	const {itemInCart, itemInwishList} = state;
 	const navItems = [
 		{text: "Home", link: "/", hideInDesktop: false},
 		{text: "Shop Now", link: "/shop", hideInDesktop: false},
@@ -94,7 +97,9 @@ const HeaderMain = () => {
 						<li className='li-tag-header'>
 							<Link className='a-tag-header-right' to='/wishlist'>
 								<i className='fas fa-heart header-icon'>
-									<span className='wishlist-number'>0</span>
+									<span className='wishlist-number'>
+										{itemInwishList.length}
+									</span>
 								</i>
 								<span>Wishlist</span>
 							</Link>
@@ -102,7 +107,7 @@ const HeaderMain = () => {
 						<li className='li-tag-header card-header'>
 							<Link className='a-tag-header-right' to='/cart'>
 								<i className='fas fa-shopping-cart header-icon'>
-									<span className='cart-number'>0</span>
+									<span className='cart-number'>{itemInCart.length}</span>
 								</i>
 								<span>Cart</span>
 							</Link>

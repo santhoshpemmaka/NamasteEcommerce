@@ -1,75 +1,49 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useStateContext} from "../../Context/StateProvider";
 import "./CartItem.scss";
-import cartitemproducts from "./CartitemProduct";
+import ItemCard from "./ItemCard";
+import {useOrderSummary} from "./useOrderSummary";
+
 const CartItem = () => {
+	const {state, dispatch} = useStateContext();
+	const {itemInCart: cartitemproducts} = state;
+	const {total, discount, cartTotal} = useOrderSummary();
+	console.log(total, discount, cartTotal);
 	return (
 		<div className='cartitem-container'>
 			<h1>My Cart</h1>
 			<div className='cartitem-component'>
 				<div className='cartitem-items'>
 					{cartitemproducts &&
-						cartitemproducts.length &&
+						cartitemproducts.length > 0 &&
 						cartitemproducts.map((cartItem) => (
-							<div className='cart-item' key={cartItem.id}>
-								<div className='cartitem-image-container'>
-									<img
-										className='cartitem-image-res'
-										src={cartItem.imageUrl}
-										alt='cart-product-image'
-										loading='lazy'
-									/>
-								</div>
-								<div className='cartitem-description'>
-									<label className='cartitem-heading'>{cartItem.name}</label>
-									<label className='cartitem-desc'>
-										{cartItem.description}
-									</label>
-									<label className='cartitem-sold'>Sold by Namaste</label>
-									<div className='cartitem-cost'>
-										<label className='cartitem-pricecost'>
-											Rs.{cartItem.discountcost}
-										</label>
-										<label className='cartitem-actualcost'>
-											Rs.{cartItem.actualcost}
-										</label>
-										<label className='cartitem-offer'>
-											{cartItem.discountOffer} OFF
-										</label>
-									</div>
-									<div className='cartitem-quantity'>
-										<button className='cartitem-quantity-btn'>
-											<i className='fas fa-minus'></i>
-										</button>
-										<span className='cartitem-num'>1</span>
-										<button className='cartitem-quantity-btn'>
-											<i className='fas fa-plus'></i>
-										</button>
-									</div>
-									<button className='cartitem-buttons'>Move to Wishlist</button>
-								</div>
-							</div>
+							<ItemCard cartItem={cartItem} key={cartItem.id} />
 						))}
 				</div>
-				<div className='cartitem-display-cost'>
-					<label className='cartitem-cost-heading'>PRICE DETAILS</label>
-					<div className='cartitem-cost-detail'>
-						<span>Total MRP</span>
-						<span>Rs.1099</span>
+				{cartitemproducts && cartitemproducts.length > 0 && (
+					<div className='cartitem-display-cost'>
+						<label className='cartitem-cost-heading'>PRICE DETAILS</label>
+						<div className='cartitem-cost-detail'>
+							<span>Total MRP</span>
+							<span>Rs.{total}</span>
+						</div>
+						<div className='cartitem-cost-detail'>
+							<span>Discount on MRP</span>
+							<span className='card-cost-discount'>- Rs. {discount}</span>
+						</div>
+						<div className='cartitem-cost-detail'>
+							<span>Convenience Fee</span>
+							<span className='card-cost-discount'>
+								<span> Rs. 99 </span>Free{" "}
+							</span>
+						</div>
+						<div className='cartitem-cost-total'>
+							<span>Total Amount</span>
+							<span>Rs. {cartTotal}</span>
+						</div>
+						<button className='cartitem-order-btn'>PLACE ORDER</button>
 					</div>
-					<div className='cartitem-cost-detail'>
-						<span>Discount on MRP</span>
-						<span className='card-cost-discount'>- Rs. 550</span>
-					</div>
-					<div className='cartitem-cost-detail'>
-						<span>Convenience Fee</span>
-						<span>Rs. 99</span>
-					</div>
-					<div className='cartitem-cost-total'>
-						<span>Total Amount</span>
-						<span>Rs. 1200</span>
-					</div>
-					<button className='cartitem-order-btn'>PLACE ORDER</button>
-				</div>
+				)}
 			</div>
 			<div className='spacer-3rem'></div>
 			<div className='spacer-3rem'></div>
