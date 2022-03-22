@@ -122,3 +122,18 @@
         color: var(--primary-color);
     }
 }
+
+@media only screen and (max-width:768px){
+	.grid-3-columnlayout{
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1.5rem;
+		max-width: 45rem;
+		.product-listing-card{
+			max-width: 204px;
+		}
+	}
+	.navbarfilter-container{
+		display: none;
+	}
+	
+}
