@@ -12,6 +12,7 @@
 		display: flex;
 		margin: 0 auto;
 		height: fit-content;
+		justify-content: center;
 		.cartitem-items {
 			display: flex;
 			flex-direction: column;
@@ -134,6 +135,10 @@
 				font-weight: 400;
 				.card-cost-discount {
 					color: #03a685;
+					span{
+						text-decoration: line-through;
+						color: var(--primary-text-color);
+					}
 				}
 			}
 			.cartitem-cost-total {
