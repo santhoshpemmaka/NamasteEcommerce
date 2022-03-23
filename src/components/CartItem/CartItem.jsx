@@ -8,7 +8,6 @@ const CartItem = () => {
 	const {state, dispatch} = useStateContext();
 	const {itemInCart: cartitemproducts} = state;
 	const {total, discount, cartTotal} = useOrderSummary();
-	console.log(total, discount, cartTotal);
 	return (
 		<div className='cartitem-container'>
 			<h1>My Cart</h1>

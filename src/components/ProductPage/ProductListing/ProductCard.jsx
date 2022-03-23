@@ -46,10 +46,8 @@ const ProductCard = ({product}) => {
 			</div>
 			<button
 				onClick={() => handlerButton(product)}
-				className={`${
-					product.stock
-						? "product-listing-btn product-in-stock"
-						: "product-listing-btn product-out-stock"
+				className={`product-listing-btn ${
+					product.stock ? "product-in-stock" : "product-out-stock"
 				}`}>
 				{product.stock && (
 					<i className='fas fa-shopping-cart product-listing-icon'></i>
@@ -67,10 +65,8 @@ const ProductCard = ({product}) => {
 
 			<i
 				onClick={() => dispatch({type: "SET_WISHLIST", payload: product})}
-				className={`${
-					isProductInWishlist
-						? " fas fa-heart product-listing-wishicon wish-active"
-						: " fas fa-heart product-listing-wishicon wish-inactive"
+				className={`fas fa-heart product-listing-wishicon ${
+					isProductInWishlist ? "wish-active" : "wish-inactive"
 				}`}></i>
 		</div>
 	);

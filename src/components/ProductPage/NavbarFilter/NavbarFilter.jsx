@@ -13,13 +13,13 @@ const NavbarFilter = () => {
 			<div className='spacer-3rem'></div>
 			<div className='category-labels'>
 				<label className='category-heading'>FILTERS</label>
-				<label
+				<button
 					onClick={() => {
 						dispatch({type: "CLEAR_ALL_FILTERS"});
 					}}
 					className='category-heading1'>
 					CLEAR ALL
-				</label>
+				</button>
 			</div>
 			<div className='navbarfilter-price'>
 				<h3 className='navbarfilter-sort'>SORT</h3>
