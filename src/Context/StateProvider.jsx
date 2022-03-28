@@ -6,7 +6,7 @@ const StateProvider = ({children}) => {
 	const initialState = {
 		products: [],
 		itemInCart: [],
-		itemInwishList: [],
+		itemInWishList: [],
 		dataFilter: {
 			includeOutOfStock: true,
 			filterByCategories: [],

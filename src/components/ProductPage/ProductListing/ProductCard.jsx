@@ -1,25 +1,44 @@
 import React from "react";
 import {useStateContext} from "../../../Context/StateProvider";
 import {useNavigate} from "react-router";
+import {
+	addProductToCart,
+	addProductToWishList,
+	removeProductToWishList,
+} from "../../../utils/server-request";
+import {isAlreadyAdded} from "../../../utils/array-check-conditon";
 
 const ProductCard = ({product}) => {
 	const {state, dispatch} = useStateContext();
 	const navigate = useNavigate();
-	const isProductInCart =
-		state.itemInCart &&
-		state.itemInCart.findIndex((p) => p.id == product.id) === -1
-			? false
-			: true;
+	const isProductInCart = isAlreadyAdded(state.itemInCart, product._id);
 	const isProductInWishlist =
-		state.itemInwishList &&
-		state.itemInwishList.findIndex((p) => p.id === product.id) === -1
+		state.itemInWishList.length === 0
 			? false
-			: true;
+			: isAlreadyAdded(state.itemInWishList, product._id);
+
+	const token = JSON.parse(localStorage.getItem("token"));
+
 	const handlerButton = (product) => {
-		isProductInCart
-			? navigate("/cart")
-			: dispatch({type: "SET_CART", payload: product});
+		token
+			? isProductInCart
+				? navigate("/cart")
+				: addProductToCart({dispatch, product, token})
+			: navigate("/login");
 	};
+
+	const wishlistHandler = (product) => {
+		token
+			? isAlreadyAdded(state.itemInWishList, product.id)
+				? removeProductToWishList({
+						dispatch,
+						product,
+						token,
+				  })
+				: addProductToWishList({dispatch, product, token})
+			: navigate("/login");
+	};
+
 	return (
 		<div className='product-listing-card' key={product.id}>
 			<div className='product-listing-image'>
@@ -64,7 +83,7 @@ const ProductCard = ({product}) => {
 			{product.newstock && <div className='product-listing-new'>New</div>}
 
 			<i
-				onClick={() => dispatch({type: "SET_WISHLIST", payload: product})}
+				onClick={() => wishlistHandler(product)}
 				className={`fas fa-heart product-listing-wishicon ${
 					isProductInWishlist ? "wish-active" : "wish-inactive"
 				}`}></i>

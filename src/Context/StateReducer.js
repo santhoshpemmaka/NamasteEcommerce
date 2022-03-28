@@ -4,33 +4,10 @@ const stateReducer = (state, {type, payload}) => {
 			return {...state, products: payload};
 
 		case "SET_CART":
-			const cartIndex = state.itemInCart.findIndex((p) => p.id === payload.id);
-			if (cartIndex === -1) {
-				return {
-					...state,
-					itemInCart: [...state.itemInCart, {...payload, cartQuantity: 1}],
-				};
-			} else {
-				return {
-					...state,
-					itemInCart: state.itemInCart.filter((p) => p.id !== payload.id),
-				};
-			}
+			return {...state, itemInCart: payload};
 
 		case "SET_WISHLIST":
-			const wishIndex = state.itemInwishList.findIndex(
-				(p) => p.id === payload.id
-			);
-			if (wishIndex === -1) {
-				return {...state, itemInwishList: [...state.itemInwishList, payload]};
-			} else {
-				return {
-					...state,
-					itemInwishList: state.itemInwishList.filter(
-						(p) => p.id !== payload.id
-					),
-				};
-			}
+			return {...state, itemInWishList: payload};
 
 		case "SORT":
 			if (payload === "HIGH_TO_LOW_PRICE") {

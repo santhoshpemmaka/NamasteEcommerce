@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import "./ProductListing.scss";
-import productData1 from "./Product.js";
 import {useStateContext} from "../../../Context/StateProvider";
 import ProductCard from "./ProductCard";
 import {getFilterData, getSortedData} from "./DataFilter";
@@ -8,9 +7,6 @@ import {getFilterData, getSortedData} from "./DataFilter";
 const ProductListing = () => {
 	const [statusCart, setstatusCart] = useState(false);
 	const {state, dispatch} = useStateContext();
-	useEffect(() => {
-		dispatch({type: "SET_PRODUCTS", payload: productData1});
-	}, []);
 	const sortedData = getSortedData(state, state.products);
 	const productData = getFilterData(state, sortedData);
 	return (
