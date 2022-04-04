@@ -1,6 +1,6 @@
 import React from "react";
 import "./Noitems.scss";
-import image from "./no-items.jpg";
+import image from "../../Assests/no-items.jpg";
 const Noitems = () => {
 	return (
 		<div className='Noitems-container'>

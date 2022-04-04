@@ -9,6 +9,7 @@ import {
 	CartItem,
 	Login,
 	SignUp,
+	ErrorPage,
 } from "./components";
 import {useEffect} from "react";
 import {
@@ -39,6 +40,7 @@ function App() {
 				<Route path='/cart' element={<CartItem />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/signup' element={<SignUp />} />
+				<Route path='*' element={<ErrorPage />} />
 			</Routes>
 			<Footer />
 		</div>
