@@ -6,6 +6,10 @@
 		text-align: center;
 		color: var(--primary-text-color);
 		font-size: 2rem;
+		span {
+			font-weight: 300;
+			margin-left: 1rem;
+		}
 	}
 	.cartitem-component {
 		width: 65%;

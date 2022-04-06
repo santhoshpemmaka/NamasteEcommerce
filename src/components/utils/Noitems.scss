@@ -1,0 +1,20 @@
+.Noitems-container{
+    color: var(--primary-text-color);
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2{
+        padding: 1rem 0rem;
+        margin-bottom: 2rem;
+    }
+    .image-response{
+        width: 50rem;
+        height: 26rem;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+}

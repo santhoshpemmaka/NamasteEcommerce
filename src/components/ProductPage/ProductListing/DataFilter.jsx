@@ -21,7 +21,7 @@ export const getFilterData = (state, data) => {
 	}
 	if (state.dataFilter.filterByCategories.length !== 0) {
 		newData = newData.filter((product) =>
-			state.dataFilter.filterByCategories.includes(product.category)
+			state.dataFilter.filterByCategories.includes(product.categoryName)
 		);
 	}
 	if (state.dataFilter.filterByBrands.length !== 0) {

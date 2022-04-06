@@ -1,7 +1,13 @@
-import uuid from "react-uuid";
-const products = [
+import {v4 as uuid} from "uuid";
+
+/**
+ * Product Database can be added here.
+ * You can add products of your wish with different attributes
+ * */
+
+export const products = [
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "SOLOGNAC",
 		description: "T-shirts Femme Steppe",
 		actualcost: 599,
@@ -10,7 +16,7 @@ const products = [
 		rating: 4,
 		totalrating: 24,
 		brand: "Domyos",
-		category: "shirts",
+		categoryName: "shirts",
 		stock: true,
 		quantity: 10,
 		newstock: true,
@@ -19,7 +25,7 @@ const products = [
 	},
 
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "PUMA",
 		description: "Men's Warm and Waterproff Boots ",
 		actualcost: 1200,
@@ -28,7 +34,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 20,
 		brand: "Quechua",
-		category: "shoes",
+		categoryName: "shoes",
 		stock: true,
 		quantity: 10,
 		newstock: true,
@@ -36,7 +42,7 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1647816%2Fk%242479e9814c12758f5184356b0913cb33%2Fmens-warm-and-waterproof-hiking-boots-sh100-ultra-warm.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "INESIS",
 		description: "T-shirts Gofo Polo shrit",
 		actualcost: 599,
@@ -45,7 +51,7 @@ const products = [
 		rating: 4,
 		totalrating: 25,
 		brand: "Artengo",
-		category: "shirts",
+		categoryName: "shirts",
 		stock: false,
 		quantity: 10,
 		newstock: true,
@@ -53,7 +59,7 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp732697%2Fk%24a7ceed49f385e3e13bab53fd65f40455%2Fmen-s-golf-polo-shirt-500-petrol-blue.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "ADDIAS",
 		description: "RUN CUSHION MEN'S RUNNING SHOES ",
 		actualcost: 1400,
@@ -62,7 +68,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 40,
 		brand: "Kalenji",
-		category: "shoes",
+		categoryName: "shoes",
 		stock: true,
 		quantity: 10,
 		newstock: false,
@@ -71,7 +77,7 @@ const products = [
 	},
 
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "ARTENGO",
 		description: "MH160 hiking sunglasses",
 		actualcost: 600,
@@ -80,7 +86,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 10,
 		brand: "Artengo",
-		category: "sunglasses",
+		categoryName: "sunglasses",
 		stock: true,
 		quantity: 10,
 		newstock: true,
@@ -88,7 +94,7 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1981363%2Fk%24640c93bf33923fb739d5854a5e884995%2Fadult-hiking-sunglasses-mh160-category-3.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "FORCLAZ",
 		description: "Travel Trekking Cargo Trousers",
 		actualcost: 1000,
@@ -97,7 +103,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 50,
 		brand: "Domyos",
-		category: "trousers",
+		categoryName: "trousers",
 		stock: false,
 		quantity: 10,
 		newstock: false,
@@ -105,7 +111,7 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1786958%2Fk%242b0a8a97ea3b1154f2f3734009451fe2%2Fmen-s-travel-trekking-cargo-trousers-travel-100-grey.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "QUECHUA",
 		description: "Hiking Backpack 20 L",
 		actualcost: 1000,
@@ -114,7 +120,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 15,
 		brand: "Quechua",
-		category: "backpack",
+		categoryName: "backpack",
 		stock: true,
 		quantity: 10,
 		newstock: false,
@@ -122,7 +128,7 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1666408%2Fk%2440b483e0ac46881717782194dfebf647%2Ftravel-backpack-60-liters-travel-100-khaki.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "Artengo",
 		description: "Travel  Backpack 60 L",
 		actualcost: 3000,
@@ -131,7 +137,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 25,
 		brand: "Artengo",
-		category: "backpack",
+		categoryName: "backpack",
 		stock: true,
 		quantity: 10,
 		newstock: false,
@@ -139,7 +145,7 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp2225873%2Fk%24ab2b42c893678ffe7f16ff7112c4341f%2Fhiking-backpack-20-l-nh-arpenaz-100.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 	{
-		id: uuid(),
+		_id: uuid(),
 		name: "QUECHUA",
 		description: "Adult hiking sunglasses",
 		actualcost: 400,
@@ -148,7 +154,7 @@ const products = [
 		rating: 4.5,
 		totalrating: 12,
 		brand: "Kalenji",
-		category: "sunglasses",
+		categoryName: "sunglasses",
 		stock: true,
 		quantity: 10,
 		newstock: true,
@@ -156,5 +162,3 @@ const products = [
 			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1981443%2Fk%24674333d41d9bc58e4224cbbec9557a4e%2Fadult-hiking-sunglasses-mh530-category-3.jpg%3F%26f%3D250x250&w=384&q=75",
 	},
 ];
-
-export default products;

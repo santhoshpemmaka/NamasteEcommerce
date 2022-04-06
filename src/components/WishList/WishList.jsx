@@ -2,10 +2,10 @@ import React from "react";
 import {useStateContext} from "../../Context/StateProvider";
 import WishCard from "./WishCard";
 import "./WishList.scss";
-
+import Noitems from "../utils/Noitems";
 const WishList = () => {
 	const {state, dispatch} = useStateContext();
-	const {itemInwishList: wishlistproducts} = state;
+	const {itemInWishList: wishlistproducts} = state;
 	return (
 		<div className='wishlist-container'>
 			<div className='spacer-3rem'></div>
@@ -13,13 +13,15 @@ const WishList = () => {
 				My WishList
 				<span> {wishlistproducts.length} Items</span>{" "}
 			</h1>
-			<div className='grid-4-column-layout-wishlist'>
-				{wishlistproducts &&
-					wishlistproducts.length > 0 &&
-					wishlistproducts.map((product) => (
+			{wishlistproducts && wishlistproducts.length === 0 ? (
+				<Noitems />
+			) : (
+				<div className='grid-4-column-layout-wishlist'>
+					{wishlistproducts.map((product) => (
 						<WishCard product={product} key={product.id} />
 					))}
-			</div>
+				</div>
+			)}
 			<div className='spacer-3rem'></div>
 		</div>
 	);

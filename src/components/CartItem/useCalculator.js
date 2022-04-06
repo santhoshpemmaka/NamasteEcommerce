@@ -3,11 +3,8 @@ export const useCalculator = ({itemInCart}) => {
 	return data.reduce(
 		(accum, curr) => {
 			return {
-				discount:
-					accum.discount +
-					Number(curr.discountcost) * Number(curr.cartQuantity),
-				totalMRP:
-					accum.totalMRP + Number(curr.actualcost) * Number(curr.cartQuantity),
+				discount: accum.discount + Number(curr.discountcost) * Number(curr.qty),
+				totalMRP: accum.totalMRP + Number(curr.actualcost) * Number(curr.qty),
 			};
 		},
 		{totalMRP: 0, discount: 0}

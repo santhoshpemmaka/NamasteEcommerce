@@ -1,19 +1,26 @@
 import React from "react";
 import {useNavigate} from "react-router";
+import {
+	removeProductToWishList,
+	addProductToCart,
+} from "../../utils/server-request";
 import {useStateContext} from "../../Context/StateProvider";
+import {isAlreadyAdded} from "../../utils/array-check-conditon";
 
 const WishCard = ({product}) => {
 	const {state, dispatch} = useStateContext();
 	const navigate = useNavigate();
-	const isProductInCart =
-		state.itemInCart &&
-		state.itemInCart.findIndex((p) => p.id == product.id) === -1
-			? false
-			: true;
+	const isProductInCart = isAlreadyAdded(state.itemInCart, product._id);
+
 	const handlerButton = (product) => {
 		isProductInCart
 			? navigate("/cart")
-			: dispatch({type: "SET_CART", payload: product});
+			: addProductToCart({dispatch, product, token});
+	};
+	console.log(isProductInCart);
+	const token = JSON.parse(localStorage.getItem("token"));
+	const wishlistHandler = (product) => {
+		removeProductToWishList({dispatch, product, token});
 	};
 	return (
 		<div className='product-listing-card' key={product.id}>
@@ -61,7 +68,7 @@ const WishCard = ({product}) => {
 			{product.newstock && <div className='product-listing-new'>New</div>}
 
 			<i
-				onClick={() => dispatch({type: "SET_WISHLIST", payload: product})}
+				onClick={() => wishlistHandler(product)}
 				className='fas fa-times product-listing-wishicon'></i>
 		</div>
 	);

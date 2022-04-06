@@ -1,13 +1,23 @@
 import React from "react";
 import {useStateContext} from "../../Context/StateProvider";
+import {
+	incrementQtyOfIncrement,
+	decrementQtyOfIncrement,
+	removeProductToCartItem,
+	addProductToWishList,
+} from "../../utils/server-request";
+import {isAlreadyAdded} from "../../utils/array-check-conditon";
 
 const ItemCard = ({cartItem}) => {
 	const {state, dispatch} = useStateContext();
+	const token = JSON.parse(localStorage.getItem("token"));
 	const moveWishbtnHandler = (product) => {
-		dispatch({type: "SET_CART", payload: product});
-		if (state.itemInwishList.findIndex((p) => p.id === product.id) === -1) {
-			dispatch({type: "SET_WISHLIST", payload: product});
+		const productInWishlist = isAlreadyAdded(state.itemInWishList, product._id);
+		if (!productInWishlist) {
+			addProductToWishList({dispatch, product, token});
 		}
+		const cartItem = product;
+		removeProductToCartItem({dispatch, cartItem, token});
 	};
 	return (
 		<div className='cart-item' key={cartItem.id}>
@@ -33,11 +43,29 @@ const ItemCard = ({cartItem}) => {
 					<label className='cartitem-offer'>{cartItem.discountOffer} OFF</label>
 				</div>
 				<div className='cartitem-quantity'>
-					<button className='cartitem-quantity-btn'>
+					<button
+						className='cartitem-quantity-btn'
+						onClick={() =>
+							cartItem.qty !== 1
+								? decrementQtyOfIncrement({
+										dispatch,
+										cartItem,
+										token,
+								  })
+								: removeProductToCartItem({
+										dispatch,
+										cartItem,
+										token,
+								  })
+						}>
 						<i className='fas fa-minus'></i>
 					</button>
-					<span className='cartitem-num'>{cartItem.cartQuantity}</span>
-					<button className='cartitem-quantity-btn'>
+					<span className='cartitem-num'>{cartItem.qty}</span>
+					<button
+						className='cartitem-quantity-btn'
+						onClick={() =>
+							incrementQtyOfIncrement({dispatch, cartItem, token})
+						}>
 						<i className='fas fa-plus'></i>
 					</button>
 				</div>

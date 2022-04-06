@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import "./HeaderMain.scss";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import {useStateContext} from "../../../Context/StateProvider";
 const HeaderMain = () => {
 	const [showNav, setshowNav] = useState(false);
 	const {state} = useStateContext();
-	const {itemInCart, itemInwishList} = state;
+	const {itemInCart, itemInWishList} = state;
+	const navigate = useNavigate();
+	const token = JSON.parse(localStorage.getItem("token"));
 	const navItems = [
 		{text: "Home", link: "/", hideInDesktop: false},
 		{text: "Shop Now", link: "/shop", hideInDesktop: false},
@@ -95,17 +97,21 @@ const HeaderMain = () => {
 							</Link>
 						</li>
 						<li className='li-tag-header'>
-							<Link className='a-tag-header-right' to='/wishlist'>
+							<Link
+								className='a-tag-header-right'
+								to={token ? "/wishlist" : "/login"}>
 								<i className='fas fa-heart header-icon'>
 									<span className='wishlist-number'>
-										{itemInwishList.length}
+										{itemInWishList.length}
 									</span>
 								</i>
 								<span>Wishlist</span>
 							</Link>
 						</li>
 						<li className='li-tag-header card-header'>
-							<Link className='a-tag-header-right' to='/cart'>
+							<Link
+								className='a-tag-header-right'
+								to={token ? "/cart" : "/login"}>
 								<i className='fas fa-shopping-cart header-icon'>
 									<span className='cart-number'>{itemInCart.length}</span>
 								</i>

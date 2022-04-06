@@ -6,4 +6,15 @@ import WishList from "./WishList/WishList";
 import CartItem from "./CartItem/CartItem";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
-export {Header, Home, Footer, ProductPage, WishList, CartItem, Login, SignUp};
+import ErrorPage from "./Errorpage/ErrorPage";
+export {
+	Header,
+	Home,
+	Footer,
+	ProductPage,
+	WishList,
+	CartItem,
+	Login,
+	SignUp,
+	ErrorPage,
+};
