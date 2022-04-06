@@ -63,7 +63,6 @@ export const addProductToCart = async ({dispatch, product, token}) => {
 		if (response.status === 200 || response.status === 201) {
 			dispatch({type: "SET_CART", payload: response?.data?.cart});
 			addToCartToast("Added To Cart");
-			console.log("add to cart");
 		} else {
 			throw new Error("Failed to get cart items");
 		}
