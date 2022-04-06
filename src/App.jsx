@@ -1,5 +1,6 @@
 import "./App.scss";
 import {Routes, Route} from "react-router-dom";
+import {ToastContainer, toast} from "react-toastify";
 import {
 	Header,
 	Footer,
@@ -33,6 +34,7 @@ function App() {
 	return (
 		<div className='App'>
 			<Header />
+			<ToastContainer />
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/shop' element={<ProductPage />} />

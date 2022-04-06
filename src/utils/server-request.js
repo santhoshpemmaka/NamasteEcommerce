@@ -1,5 +1,10 @@
 import axios from "axios";
-
+import {
+	addToCartToast,
+	addTowishListToast,
+	deleteFromWishListToast,
+	errorToast,
+} from "./Toastify";
 export const getProductsServer = async (dispatch) => {
 	try {
 		const response = await axios({
@@ -57,11 +62,14 @@ export const addProductToCart = async ({dispatch, product, token}) => {
 		const response = await axios.post("/api/user/cart", {product}, config);
 		if (response.status === 200 || response.status === 201) {
 			dispatch({type: "SET_CART", payload: response?.data?.cart});
+			addToCartToast("Added To Cart");
+			console.log("add to cart");
 		} else {
 			throw new Error("Failed to get cart items");
 		}
 	} catch (error) {
 		console.log("Err", error);
+		errorToast("Some Unwanted Error Occured");
 	}
 };
 
@@ -71,11 +79,13 @@ export const addProductToWishList = async ({dispatch, product, token}) => {
 		const response = await axios.post("/api/user/wishlist", {product}, config);
 		if (response.status === 200 || response.status === 201) {
 			dispatch({type: "SET_WISHLIST", payload: response?.data?.wishlist});
+			addTowishListToast("Added To WishList");
 		} else {
 			throw new Error("Failed to get wishlist items");
 		}
 	} catch (err) {
 		console.log("Err", err);
+		errorToast("Some Unwanted Error Occured");
 	}
 };
 
@@ -86,11 +96,13 @@ export const removeProductToWishList = async ({dispatch, product, token}) => {
 		const response = await axios.delete(`/api/user/wishlist/${id}`, config);
 		if (response.status === 200 || response.status === 201) {
 			dispatch({type: "SET_WISHLIST", payload: response?.data?.wishlist});
+			deleteFromWishListToast("Remove From WishList");
 		} else {
 			throw new Error("Failed to get wishlist items");
 		}
 	} catch (error) {
 		console.log("Error", error);
+		errorToast("Some Unwanted Error Occured");
 	}
 };
 
@@ -105,11 +117,13 @@ export const removeProductToCartItem = async ({
 		const response = await axios.delete(`/api/user/cart/${id}`, config);
 		if (response.status === 200 || response.status === 201) {
 			dispatch({type: "SET_CART", payload: response?.data?.cart});
+			deleteFromWishListToast("Remove From Cart");
 		} else {
 			throw new Error("Failed to get cart items");
 		}
 	} catch (error) {
 		console.log("Error", error);
+		errorToast("Some Unwanted Error Occured");
 	}
 };
 
@@ -133,6 +147,7 @@ export const incrementQtyOfIncrement = async ({
 		}
 	} catch (error) {
 		console.log("Error", error);
+		errorToast("Some Unwanted Error Occured");
 	}
 };
 
@@ -156,5 +171,6 @@ export const decrementQtyOfIncrement = async ({
 		}
 	} catch (error) {
 		console.log("Error", error);
+		errorToast("Some Unwanted Error Occured");
 	}
 };
