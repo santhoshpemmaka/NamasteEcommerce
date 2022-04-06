@@ -2,7 +2,7 @@ import React from "react";
 import {useStateContext} from "../../Context/StateProvider";
 import WishCard from "./WishCard";
 import "./WishList.scss";
-import Noitems from "../utils/Noitems";
+import Noitems from "../Noitems/Noitems";
 const WishList = () => {
 	const {state, dispatch} = useStateContext();
 	const {itemInWishList: wishlistproducts} = state;

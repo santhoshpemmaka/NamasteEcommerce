@@ -3,7 +3,7 @@ import {useStateContext} from "../../Context/StateProvider";
 import "./CartItem.scss";
 import ItemCard from "./ItemCard";
 import {useOrderSummary} from "./useOrderSummary";
-import Noitems from "../utils/Noitems";
+import Noitems from "../Noitems/Noitems";
 
 const CartItem = () => {
 	const {state, dispatch} = useStateContext();
