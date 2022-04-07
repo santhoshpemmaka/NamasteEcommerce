@@ -26,5 +26,5 @@ Upcoming Feature :
 - Address Management of the user
 - Search responsive
 
-### Hoisted Link : -
+### Hoisted Link : - https://namaste-e-commerce.netlify.app
 
