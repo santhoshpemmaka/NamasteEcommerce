@@ -6,19 +6,20 @@ import {
 } from "../../utils/server-request";
 import {useStateContext} from "../../Context/StateProvider";
 import {isAlreadyAdded} from "../../utils/array-check-conditon";
+import {useAuthentication} from "../../Context/AuthContext";
 
 const WishCard = ({product}) => {
 	const {state, dispatch} = useStateContext();
 	const navigate = useNavigate();
 	const isProductInCart = isAlreadyAdded(state.itemInCart, product._id);
-
+	const {
+		state: {token},
+	} = useAuthentication();
 	const handlerButton = (product) => {
 		isProductInCart
 			? navigate("/cart")
 			: addProductToCart({dispatch, product, token});
 	};
-	console.log(isProductInCart);
-	const token = JSON.parse(localStorage.getItem("token"));
 	const wishlistHandler = (product) => {
 		removeProductToWishList({dispatch, product, token});
 	};

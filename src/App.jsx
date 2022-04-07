@@ -19,12 +19,15 @@ import {
 	getWishListServer,
 } from "./utils/server-request";
 import {useStateContext} from "./Context/StateProvider";
+import {useAuthentication} from "./Context/AuthContext";
 function App() {
 	const {state, dispatch} = useStateContext();
+	const {
+		state: {token},
+	} = useAuthentication();
 	useEffect(() => {
 		getProductsServer(dispatch);
 	}, []);
-	const token = JSON.parse(localStorage.getItem("token"));
 	useEffect(() => {
 		if (token) {
 			getCartItemServer(dispatch, token);
