@@ -7,10 +7,13 @@ import {
 	addProductToWishList,
 } from "../../utils/server-request";
 import {isAlreadyAdded} from "../../utils/array-check-conditon";
+import {useAuthentication} from "../../Context/AuthContext";
 
 const ItemCard = ({cartItem}) => {
 	const {state, dispatch} = useStateContext();
-	const token = JSON.parse(localStorage.getItem("token"));
+	const {
+		state: {token},
+	} = useAuthentication();
 	const moveWishbtnHandler = (product) => {
 		const productInWishlist = isAlreadyAdded(state.itemInWishList, product._id);
 		if (!productInWishlist) {

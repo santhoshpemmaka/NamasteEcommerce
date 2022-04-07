@@ -7,17 +7,19 @@ import {
 	removeProductToWishList,
 } from "../../../utils/server-request";
 import {isAlreadyAdded} from "../../../utils/array-check-conditon";
+import {useAuthentication} from "../../../Context/AuthContext";
 
 const ProductCard = ({product}) => {
 	const {state, dispatch} = useStateContext();
 	const navigate = useNavigate();
+	const {
+		state: {token},
+	} = useAuthentication();
 	const isProductInCart = isAlreadyAdded(state.itemInCart, product._id);
 	const isProductInWishlist =
 		state.itemInWishList.length === 0
 			? false
 			: isAlreadyAdded(state.itemInWishList, product._id);
-
-	const token = JSON.parse(localStorage.getItem("token"));
 
 	const handlerButton = (product) => {
 		token

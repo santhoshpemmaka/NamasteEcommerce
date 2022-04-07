@@ -2,12 +2,16 @@ import React, {useState} from "react";
 import "./HeaderMain.scss";
 import {Link, NavLink, useNavigate} from "react-router-dom";
 import {useStateContext} from "../../../Context/StateProvider";
+import {useAuthentication} from "../../../Context/AuthContext";
 const HeaderMain = () => {
 	const [showNav, setshowNav] = useState(false);
 	const {state} = useStateContext();
 	const {itemInCart, itemInWishList} = state;
 	const navigate = useNavigate();
-	const token = JSON.parse(localStorage.getItem("token"));
+	const {
+		state: {token, userName},
+		logoutUser,
+	} = useAuthentication();
 	const navItems = [
 		{text: "Home", link: "/", hideInDesktop: false},
 		{text: "Shop Now", link: "/shop", hideInDesktop: false},
@@ -90,19 +94,28 @@ const HeaderMain = () => {
 						/>
 					</div>
 					<ul className='ul-tag-header ul-right'>
-						<li className='li-tag-header hide-in-mobile'>
-							<Link className='a-tag-header-right' to='/login'>
+						{token ? (
+							<li
+								className='li-tag-header hide-in-mobile a-tag-header-right'
+								onClick={() => logoutUser()}>
 								<i className='fas fa-user header-icon'></i>
-								<span>Login</span>
-							</Link>
-						</li>
+								<span>{userName}</span>
+							</li>
+						) : (
+							<li className='li-tag-header hide-in-mobile'>
+								<Link className='a-tag-header-right' to='/login'>
+									<i className='fas fa-user header-icon'></i>
+									<span>Login</span>
+								</Link>
+							</li>
+						)}
 						<li className='li-tag-header'>
 							<Link
 								className='a-tag-header-right'
 								to={token ? "/wishlist" : "/login"}>
 								<i className='fas fa-heart header-icon'>
 									<span className='wishlist-number'>
-										{itemInWishList.length}
+										{token ? itemInWishList.length : 0}
 									</span>
 								</i>
 								<span>Wishlist</span>
@@ -113,7 +126,9 @@ const HeaderMain = () => {
 								className='a-tag-header-right'
 								to={token ? "/cart" : "/login"}>
 								<i className='fas fa-shopping-cart header-icon'>
-									<span className='cart-number'>{itemInCart.length}</span>
+									<span className='cart-number'>
+										{token ? itemInCart.length : 0}
+									</span>
 								</i>
 								<span>Cart</span>
 							</Link>
