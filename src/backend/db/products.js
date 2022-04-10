@@ -1,5 +1,15 @@
 import {v4 as uuid} from "uuid";
-
+import {
+	product7,
+	product8,
+	product9,
+	product10,
+	product11,
+	product12,
+	product13,
+	product14,
+	product15,
+} from "../../Assests";
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -20,8 +30,7 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: true,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1991525%2Fk%24cfc166001d2362dbc0650edbab25b8cc%2Ft-shirts-femme-steppe-100-new-wood.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product7,
 	},
 
 	{
@@ -38,8 +47,7 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: true,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1647816%2Fk%242479e9814c12758f5184356b0913cb33%2Fmens-warm-and-waterproof-hiking-boots-sh100-ultra-warm.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product8,
 	},
 	{
 		_id: uuid(),
@@ -55,8 +63,7 @@ export const products = [
 		stock: false,
 		quantity: 10,
 		newstock: true,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp732697%2Fk%24a7ceed49f385e3e13bab53fd65f40455%2Fmen-s-golf-polo-shirt-500-petrol-blue.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product9,
 	},
 	{
 		_id: uuid(),
@@ -72,8 +79,7 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: false,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp2175320%2Fk%24f1495938c52c763fd6810a3251f22c60%2Frun-cushion-men-s-running-shoes-blue-black.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product10,
 	},
 
 	{
@@ -90,8 +96,7 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: true,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1981363%2Fk%24640c93bf33923fb739d5854a5e884995%2Fadult-hiking-sunglasses-mh160-category-3.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product11,
 	},
 	{
 		_id: uuid(),
@@ -107,8 +112,7 @@ export const products = [
 		stock: false,
 		quantity: 10,
 		newstock: false,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1786958%2Fk%242b0a8a97ea3b1154f2f3734009451fe2%2Fmen-s-travel-trekking-cargo-trousers-travel-100-grey.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product12,
 	},
 	{
 		_id: uuid(),
@@ -124,8 +128,7 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: false,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1666408%2Fk%2440b483e0ac46881717782194dfebf647%2Ftravel-backpack-60-liters-travel-100-khaki.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product13,
 	},
 	{
 		_id: uuid(),
@@ -141,8 +144,7 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: false,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp2225873%2Fk%24ab2b42c893678ffe7f16ff7112c4341f%2Fhiking-backpack-20-l-nh-arpenaz-100.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product14,
 	},
 	{
 		_id: uuid(),
@@ -158,7 +160,6 @@ export const products = [
 		stock: true,
 		quantity: 10,
 		newstock: true,
-		imageUrl:
-			"https://www.decathlon.in/_next/image?url=https%3A%2F%2Fcontents.mediadecathlon.com%2Fp1981443%2Fk%24674333d41d9bc58e4224cbbec9557a4e%2Fadult-hiking-sunglasses-mh530-category-3.jpg%3F%26f%3D250x250&w=384&q=75",
+		imageUrl: product15,
 	},
 ];
