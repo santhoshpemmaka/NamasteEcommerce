@@ -80,6 +80,12 @@ const stateReducer = (state, {type, payload}) => {
 					filterByBrands: [],
 				},
 			};
+
+		case "SEARCH":
+			return {
+				...state,
+				searchBy: payload,
+			};
 		default:
 			return state;
 	}

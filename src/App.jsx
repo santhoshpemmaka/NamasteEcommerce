@@ -11,6 +11,11 @@ import {
 	Login,
 	SignUp,
 	ErrorPage,
+	ProfilePage,
+	ProfileCard,
+	SettingCard,
+	OrderCard,
+	SingleProductPage,
 } from "./components";
 import {useEffect} from "react";
 import {
@@ -41,11 +46,18 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/shop' element={<ProductPage />} />
+				<Route path='/shop/:id' element={<SingleProductPage />} />
 				<Route path='/wishlist' element={<WishList />} />
 				<Route path='/cart' element={<CartItem />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/signup' element={<SignUp />} />
+				<Route path='/profile' element={<ProfilePage />}>
+					<Route path='/profile/' element={<ProfileCard />} />
+					<Route path='/profile/settings' element={<SettingCard />} />
+					<Route path='/profile/orders' element={<OrderCard />} />
+				</Route>
 				<Route path='*' element={<ErrorPage />} />
+				<Route path='/error' element={<ErrorPage />} />
 			</Routes>
 			<Footer />
 		</div>

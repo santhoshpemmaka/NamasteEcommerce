@@ -13,6 +13,7 @@ const StateProvider = ({children}) => {
 			filterByBrands: [],
 		},
 		sortBy: "",
+		searchBy: "",
 	};
 
 	const [state, dispatch] = useReducer(stateReducer, initialState);

@@ -7,6 +7,11 @@ import CartItem from "./CartItem/CartItem";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import ErrorPage from "./Errorpage/ErrorPage";
+import ProfilePage from "./ProfilePage/ProfilePage";
+import ProfileCard from "./ProfilePage/ProfileCard";
+import SettingCard from "./ProfilePage/SettingCard";
+import OrderCard from "./ProfilePage/OrderCard";
+import SingleProductPage from "./SingleProductPage/SingleProductPage";
 export {
 	Header,
 	Home,
@@ -17,4 +22,9 @@ export {
 	Login,
 	SignUp,
 	ErrorPage,
+	ProfilePage,
+	ProfileCard,
+	SettingCard,
+	OrderCard,
+	SingleProductPage,
 };
