@@ -14,6 +14,7 @@ const StateProvider = ({children}) => {
 		},
 		sortBy: "",
 		searchBy: "",
+		orderDetails: [],
 	};
 
 	const [state, dispatch] = useReducer(stateReducer, initialState);

@@ -1,6 +1,7 @@
 import "./App.scss";
 import {Routes, Route} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
+import PrivateRoute from "./PrivateRoute";
 import {
 	Header,
 	Footer,
@@ -16,6 +17,7 @@ import {
 	SettingCard,
 	OrderCard,
 	SingleProductPage,
+	AddressCard,
 } from "./components";
 import {useEffect} from "react";
 import {
@@ -47,14 +49,29 @@ function App() {
 				<Route path='/' element={<Home />} />
 				<Route path='/shop' element={<ProductPage />} />
 				<Route path='/shop/:id' element={<SingleProductPage />} />
-				<Route path='/wishlist' element={<WishList />} />
-				<Route path='/cart' element={<CartItem />} />
+				<Route
+					path='/wishlist'
+					element={
+						<PrivateRoute>
+							<WishList />
+						</PrivateRoute>
+					}
+				/>
+				<Route
+					path='/cart'
+					element={
+						<PrivateRoute>
+							<CartItem />
+						</PrivateRoute>
+					}
+				/>
 				<Route path='/login' element={<Login />} />
 				<Route path='/signup' element={<SignUp />} />
 				<Route path='/profile' element={<ProfilePage />}>
 					<Route path='/profile/' element={<ProfileCard />} />
 					<Route path='/profile/settings' element={<SettingCard />} />
 					<Route path='/profile/orders' element={<OrderCard />} />
+					<Route path='/profile/address' element={<AddressCard />} />
 				</Route>
 				<Route path='*' element={<ErrorPage />} />
 				<Route path='/error' element={<ErrorPage />} />

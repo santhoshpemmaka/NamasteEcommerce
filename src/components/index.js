@@ -12,6 +12,8 @@ import ProfileCard from "./ProfilePage/ProfileCard";
 import SettingCard from "./ProfilePage/SettingCard";
 import OrderCard from "./ProfilePage/OrderCard";
 import SingleProductPage from "./SingleProductPage/SingleProductPage";
+import AddressCard from "./ProfilePage/AddressCard";
+
 export {
 	Header,
 	Home,
@@ -27,4 +29,5 @@ export {
 	SettingCard,
 	OrderCard,
 	SingleProductPage,
+	AddressCard,
 };

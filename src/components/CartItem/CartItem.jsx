@@ -1,14 +1,21 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import {v4 as uuid} from "uuid";
 import {useStateContext} from "../../Context/StateProvider";
 import "./CartItem.scss";
 import ItemCard from "./ItemCard";
 import {useOrderSummary} from "./useOrderSummary";
 import Noitems from "../Noitems/Noitems";
+import {useNavigate} from "react-router";
 
 const CartItem = () => {
 	const {state, dispatch} = useStateContext();
 	const {itemInCart: cartitemproducts} = state;
 	const {total, discount, cartTotal} = useOrderSummary();
+	const [showPlaceOrder, setshowPlaceOrder] = useState(false);
+
+	const placeOrderHandler = () => {
+		setshowPlaceOrder((prev) => !prev);
+	};
 	return (
 		<div className='cartitem-container'>
 			<h1>
@@ -45,8 +52,20 @@ const CartItem = () => {
 								<span>Total Amount</span>
 								<span>Rs. {cartTotal}</span>
 							</div>
-							<button className='cartitem-order-btn'>PLACE ORDER</button>
+							<button
+								className='cartitem-order-btn'
+								onClick={() => placeOrderHandler()}>
+								PLACE ORDER
+							</button>
 						</div>
+					)}
+					{showPlaceOrder && (
+						<ShowPlaceOrderModal
+							state={state}
+							totalAmount={cartTotal}
+							setshowPlaceOrder={setshowPlaceOrder}
+							dispatch={dispatch}
+						/>
 					)}
 				</div>
 			)}
@@ -57,3 +76,49 @@ const CartItem = () => {
 };
 
 export default CartItem;
+
+const ShowPlaceOrderModal = ({
+	setshowPlaceOrder,
+	totalAmount,
+	state,
+	dispatch,
+}) => {
+	const navigate = useNavigate();
+	const orderId = uuid().replaceAll("-", "");
+	const viewDetailsHandler = (orderId) => {
+		const orderObject = [
+			{
+				orderitems: state?.itemInCart,
+				orderAmount: totalAmount,
+				orderId: orderId,
+			},
+		];
+		dispatch({
+			type: "ORDER_DETAILS",
+			payload: orderObject,
+		});
+		dispatch({type: "SET_CART", payload: []});
+		navigate("/profile/orders");
+	};
+	return (
+		<div className='order-detail-container'>
+			<div className='modal-content'>
+				<div>
+					<h2 className='order-confirm'>Order Confirmed </h2>
+					<h2 className='order-confirm-id'>Order No: {orderId}</h2>
+					<label className='order-confirm-thanks'>
+						Thanks you shopping with us!
+					</label>
+					<div className='order-conirm-buttons'>
+						<button onClick={() => viewDetailsHandler(orderId)}>
+							View Order
+						</button>
+						<button onClick={() => setshowPlaceOrder((prev) => !prev)}>
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};

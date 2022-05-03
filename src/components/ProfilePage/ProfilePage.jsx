@@ -20,6 +20,10 @@ const ProfilePage = () => {
 			link: "/profile/orders",
 		},
 		{
+			text: "Address",
+			link: "/profile/address",
+		},
+		{
 			text: "Settings",
 			link: "/profile/settings",
 		},

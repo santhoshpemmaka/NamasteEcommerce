@@ -122,9 +122,7 @@ const HeaderMain = () => {
 							</li>
 						)}
 						<li className='li-tag-header'>
-							<Link
-								className='a-tag-header-right'
-								to={token ? "/wishlist" : "/login"}>
+							<Link className='a-tag-header-right' to='/wishlist'>
 								<i className='fas fa-heart header-icon'>
 									<span className='wishlist-number'>
 										{token ? itemInWishList.length : 0}
@@ -134,9 +132,7 @@ const HeaderMain = () => {
 							</Link>
 						</li>
 						<li className='li-tag-header card-header'>
-							<Link
-								className='a-tag-header-right'
-								to={token ? "/cart" : "/login"}>
+							<Link className='a-tag-header-right' to='/cart'>
 								<i className='fas fa-shopping-cart header-icon'>
 									<span className='cart-number'>
 										{token ? itemInCart.length : 0}

@@ -69,3 +69,64 @@
 	font-size: 1.6rem;
 	border-radius: 0.625rem;
 }
+
+.order-details {
+	box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+	padding: 2rem 2rem;
+	margin: 1rem 0;
+	.order-detail-heading {
+		font-size: 2rem;
+		text-align: center;
+		padding: 1rem 0;
+		color: #03a685;
+	}
+	.order-detail-date {
+		font-size: 1.6rem;
+		color: var(--primary-text-color);
+		padding: 0.5rem 0;
+	}
+	.order-detail-id {
+		font-size: 1.6rem;
+		padding: 0.5rem 0;
+		color: var(--primary-text-color);
+	}
+	.order-detail-amount {
+		font-size: 1.8rem;
+		padding: 0.75rem 0;
+		color: var(--primary-text-color);
+		font-weight: bold;
+	}
+	.order-detail-address {
+		font-size: 1.6rem;
+		padding: 0.5rem 0;
+		color: var(--primary-text-color);
+		letter-spacing: 0.1rem;
+		display: block;
+	}
+	.order-detail-items {
+		display: flex;
+		padding-top: 1rem;
+		font-size: 1.8rem;
+		justify-content: space-between;
+		color: var(--primary-text-color);
+		font-weight: 500;
+	}
+}
+
+.address-details {
+	box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+	padding: 2rem 2rem;
+	margin: 1rem 0;
+	.address-details-heading {
+		font-size: 2rem;
+		padding: 1rem 0;
+		color: var(--primary-text-color);
+	}
+	.order-detail-address {
+		font-size: 1.8rem;
+		color: var(--primary-text-color);
+		padding: 1rem 0;
+		letter-spacing: 0.1rem;
+		line-height: 2.5rem;
+	}
+}

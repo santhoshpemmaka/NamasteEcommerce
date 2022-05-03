@@ -86,6 +86,13 @@ const stateReducer = (state, {type, payload}) => {
 				...state,
 				searchBy: payload,
 			};
+
+		case "ORDER_DETAILS":
+			return {
+				...state,
+				orderDetails: payload,
+			};
+
 		default:
 			return state;
 	}
