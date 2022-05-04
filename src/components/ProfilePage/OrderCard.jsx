@@ -27,12 +27,10 @@ const OrderCard = () => {
 					</>
 					{orderDetails &&
 						orderDetails[0]?.orderitems.map((order) => (
-							<>
-								<div className='order-detail-items'>
-									<label>* {order.description}</label>
-									<label>{order.qty} Qty</label>
-								</div>
-							</>
+							<div className='order-detail-items' key={order._id}>
+								<label>* {order.description}</label>
+								<label>{order.qty} Qty</label>
+							</div>
 						))}
 				</div>
 			)}
