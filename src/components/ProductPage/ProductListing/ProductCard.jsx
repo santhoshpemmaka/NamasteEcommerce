@@ -40,10 +40,14 @@ const ProductCard = ({product}) => {
 				: addProductToWishList({dispatch, product, token})
 			: navigate("/login");
 	};
-
+	const imageHandler = () => {
+		navigate(`/shop/${product._id}`);
+	};
 	return (
 		<div className='product-listing-card' key={product.id}>
-			<div className='product-listing-image'>
+			<div
+				className='product-listing-image'
+				onClick={() => imageHandler(product)}>
 				<img
 					className='product-responsive-image'
 					src={product.imageUrl}
