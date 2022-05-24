@@ -1,8 +1,16 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useLocation} from "react-router-dom";
+import axios from "axios";
+import {useAuthentication} from "../../Context/AuthContext";
 import "./SignUp.scss";
 
 const SignUp = () => {
+	const {
+		state: {token},
+		dispatch,
+	} = useAuthentication();
+	const navigation = useNavigate();
+	const location = useLocation();
 	const [signupDetails, setsignupDetails] = useState({
 		firstName: "",
 		lastName: "",
@@ -13,7 +21,50 @@ const SignUp = () => {
 		shownPassword: false,
 	});
 
+	if (token) {
+		setTimeout(() => {
+			navigation(location?.state?.from?.pathname || "/", {replace: true});
+		}, 1000);
+	}
+
+	const usersignupHandler = async (dispatch, signupDeatils) => {
+		try {
+			const response = await axios.post("/api/auth/signup", {
+				email: signupDeatils.emailName,
+				passWord: signupDeatils.passWord,
+				firstName: signupDeatils.firstName,
+				lastName: signupDeatils.lastName,
+			});
+			if (response.status === 200 || response.status === 201) {
+				console.log(response.data);
+				localStorage?.setItem(
+					"userSession",
+					JSON.stringify({
+						userName: response?.data?.createdUser?.firstName,
+						token: response?.data?.encodedToken,
+						email: response?.data?.createdUser.email,
+						lastName: response?.data?.lastName,
+					})
+				);
+				dispatch({
+					type: "SIGNUP_USER",
+					payload: {
+						userName: response?.data?.createdUser?.firstName,
+						token: response?.data?.encodedToken,
+						email: response?.data?.createdUser.email,
+						lastName: response?.data?.createdUser?.lastName,
+					},
+				});
+			} else {
+				throw new Error("Failed to signup");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	const signupHandler = () => {
+		usersignupHandler(dispatch, signupDetails);
 		setsignupDetails({
 			firstName: "",
 			lastName: "",
@@ -108,11 +159,11 @@ const SignUp = () => {
 							{signupDetails.shownPassword ? (
 								<i
 									onClick={iconHandler}
-									className='fas fa-eye-slash password-icon'></i>
+									className='fas fa-eye password-icon'></i>
 							) : (
 								<i
 									onClick={iconHandler}
-									className='fas fa-eye password-icon'></i>
+									className='fas fa-eye-slash password-icon'></i>
 							)}
 						</div>
 					</div>

@@ -2,12 +2,13 @@ import React, {useEffect, useState} from "react";
 import "./ProductListing.scss";
 import {useStateContext} from "../../../Context/StateProvider";
 import ProductCard from "./ProductCard";
-import {getFilterData, getSortedData} from "./DataFilter";
+import {getFilterData, getSortedData, getSearchData} from "./DataFilter";
 
 const ProductListing = () => {
 	const [statusCart, setstatusCart] = useState(false);
 	const {state, dispatch} = useStateContext();
-	const sortedData = getSortedData(state, state.products);
+	const searchData = getSearchData(state);
+	const sortedData = getSortedData(state, searchData);
 	const productData = getFilterData(state, sortedData);
 	return (
 		<div className='productlisting-container'>

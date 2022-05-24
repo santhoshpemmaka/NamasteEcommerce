@@ -1,4 +1,12 @@
-import {useState} from "react";
+export const getSearchData = (state) => {
+	let newData = state.products;
+	newData = newData.filter(
+		(data) =>
+			data.name.toLowerCase().includes(state.searchBy.toLowerCase()) ||
+			data.categoryName.toLowerCase().includes(state.searchBy.toLowerCase())
+	);
+	return newData;
+};
 
 export const getSortedData = (state, data) => {
 	if (state.sortBy === "HIGH_TO_LOW_PRICE") {

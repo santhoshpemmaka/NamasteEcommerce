@@ -5,23 +5,32 @@ import {useStateContext} from "../../../Context/StateProvider";
 import {useAuthentication} from "../../../Context/AuthContext";
 const HeaderMain = () => {
 	const [showNav, setshowNav] = useState(false);
-	const {state} = useStateContext();
+	const [searchText, setsearchText] = useState("");
+	const {state, dispatch} = useStateContext();
 	const {itemInCart, itemInWishList} = state;
 	const navigate = useNavigate();
 	const {
 		state: {token, userName},
 		logoutUser,
 	} = useAuthentication();
+
 	const navItems = [
 		{text: "Home", link: "/", hideInDesktop: false},
 		{text: "Shop Now", link: "/shop", hideInDesktop: false},
 		{text: "Profile", link: "/profile", hideInDesktop: true},
-		{text: "Orders", link: "/profile/orders", hideInDesktop: true},
-		{text: "Addresses", link: "/profile/address", hideInDesktop: true},
-		{text: "Settings", link: "/profile/settings", hideInDesktop: true},
 	];
+
 	const navHandler = () => {
 		setshowNav((prev) => !prev);
+	};
+
+	const searchHandler = (e) => {
+		if (e.key === "Enter" || e.keyCode === 8 || e.target.value) {
+			dispatch({
+				type: "SEARCH",
+				payload: e.target.value,
+			});
+		}
 	};
 	return (
 		<div className='container'>
@@ -90,16 +99,19 @@ const HeaderMain = () => {
 						<input
 							type='text'
 							className='search-text'
+							value={searchText}
 							placeholder='Search for products, brands'
+							onChange={(e) => setsearchText(e.target.value)}
+							onKeyDown={(e) => searchHandler(e)}
 						/>
 					</div>
 					<ul className='ul-tag-header ul-right'>
 						{token ? (
-							<li
-								className='li-tag-header hide-in-mobile a-tag-header-right'
-								onClick={() => logoutUser()}>
-								<i className='fas fa-user header-icon'></i>
-								<span>{userName}</span>
+							<li className='li-tag-header hide-in-mobile'>
+								<Link className='a-tag-header-right' to='/profile'>
+									<i className='fas fa-user header-icon'></i>
+									<span>Hi,{userName}</span>
+								</Link>
 							</li>
 						) : (
 							<li className='li-tag-header hide-in-mobile'>
@@ -110,9 +122,7 @@ const HeaderMain = () => {
 							</li>
 						)}
 						<li className='li-tag-header'>
-							<Link
-								className='a-tag-header-right'
-								to={token ? "/wishlist" : "/login"}>
+							<Link className='a-tag-header-right' to='/wishlist'>
 								<i className='fas fa-heart header-icon'>
 									<span className='wishlist-number'>
 										{token ? itemInWishList.length : 0}
@@ -122,9 +132,7 @@ const HeaderMain = () => {
 							</Link>
 						</li>
 						<li className='li-tag-header card-header'>
-							<Link
-								className='a-tag-header-right'
-								to={token ? "/cart" : "/login"}>
+							<Link className='a-tag-header-right' to='/cart'>
 								<i className='fas fa-shopping-cart header-icon'>
 									<span className='cart-number'>
 										{token ? itemInCart.length : 0}
