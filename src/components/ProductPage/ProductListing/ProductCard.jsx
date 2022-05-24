@@ -20,7 +20,6 @@ const ProductCard = ({product}) => {
 		state.itemInWishList.length === 0
 			? false
 			: isAlreadyAdded(state.itemInWishList, product._id);
-	console.log("wish", isProductInWishlist);
 	const handlerButton = (product) => {
 		token
 			? isProductInCart
