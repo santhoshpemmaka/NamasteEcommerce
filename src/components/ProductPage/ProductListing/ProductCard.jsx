@@ -20,7 +20,6 @@ const ProductCard = ({product}) => {
 		state.itemInWishList.length === 0
 			? false
 			: isAlreadyAdded(state.itemInWishList, product._id);
-
 	const handlerButton = (product) => {
 		token
 			? isProductInCart
@@ -31,7 +30,7 @@ const ProductCard = ({product}) => {
 
 	const wishlistHandler = (product) => {
 		token
-			? isAlreadyAdded(state.itemInWishList, product.id)
+			? isAlreadyAdded(state.itemInWishList, product._id)
 				? removeProductToWishList({
 						dispatch,
 						product,
