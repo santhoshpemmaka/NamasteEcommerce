@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
+    "css-loader": "^6.7.1",
     "dayjs": "^1.11.0",
     "eslint-visitor-keys": "^3.3.0",
     "jsonwebtoken": "^8.5.1",
