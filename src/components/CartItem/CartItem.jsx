@@ -118,9 +118,9 @@ const ShowPlaceOrderModal = ({
 						<button onClick={() => viewDetailsHandler(orderId)}>
 							View Order
 						</button>
-						<button onClick={() => setshowPlaceOrder((prev) => !prev)}>
+						{/* <button onClick={() => setshowPlaceOrder((prev) => !prev)}>
 							Close
-						</button>
+						</button> */}
 					</div>
 				</div>
 			</div>
