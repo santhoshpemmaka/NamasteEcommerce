@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {Link, useNavigate, Navigate, useLocation} from "react-router-dom";
+import {ThreeDots} from "react-loader-spinner";
+import validator from "validator";
 import {useAuthentication} from "../../Context/AuthContext";
 import "./Login.scss";
 const Login = () => {
@@ -10,6 +12,8 @@ const Login = () => {
 	} = useAuthentication();
 	const navigation = useNavigate();
 	const location = useLocation();
+	const [loginMessage, setloginMessage] = useState(false);
+	const [showLoader, setshowLoader] = useState(false);
 	const [loginDetails, setloginDetails] = useState({
 		username: "",
 		password: "",
@@ -23,7 +27,7 @@ const Login = () => {
 	}
 
 	const btnHandler = () => {
-		setloginDetails({username: "", password: ""});
+		setloginMessage((prev) => !prev);
 	};
 	const iconHandler = () => {
 		setloginDetails({
@@ -46,6 +50,7 @@ const Login = () => {
 						email: response?.data?.foundUser?.email,
 					})
 				);
+				setshowLoader((prev) => !prev);
 				dispatch({
 					type: "LOGIN_USER",
 					payload: {
@@ -86,6 +91,17 @@ const Login = () => {
 								setloginDetails({...loginDetails, username: e.target.value})
 							}
 						/>
+						{loginDetails.username.length > 1 &&
+						validator.isEmail(loginDetails.username) === false ? (
+							<label className='validate-data'>Please enter valid email</label>
+						) : (
+							""
+						)}
+						{loginDetails.username.length === 0 && loginMessage && (
+							<label className='validate-data'>
+								* Email input field is required
+							</label>
+						)}
 						<div className='login-password'>
 							<input
 								className='login-input'
@@ -105,16 +121,24 @@ const Login = () => {
 									onClick={iconHandler}
 									className='fas fa-eye-slash password-icon'></i>
 							)}
+							{loginDetails.password.length === 0 && loginMessage && (
+								<label className='validate-data'>
+									* Password input field is required
+								</label>
+							)}
 						</div>
-
-						<Link className='forgot-alink' to='/'>
-							<label className='forgot-password'>Forgot your password?</label>
-						</Link>
 						<button
 							className='login-input test-credentails-btn'
 							onClick={testHandler}>
 							Login With Test Crendentails
 						</button>
+						{loginDetails.username !== "" &&
+							loginDetails.password.length > 3 &&
+							loginMessage && (
+								<label className='login-message'>
+									login failed. try with test crendentails
+								</label>
+							)}
 						<button className='login-input login-btn' onClick={btnHandler}>
 							LOGIN
 						</button>
@@ -123,6 +147,16 @@ const Login = () => {
 						</label>
 					</div>
 				</div>
+				{showLoader && (
+					<div className='loader-dots'>
+						<ThreeDots
+							color='#ff3f6c'
+							height={100}
+							width={100}
+							timeout={5000}
+						/>
+					</div>
+				)}
 			</div>
 		</>
 	);

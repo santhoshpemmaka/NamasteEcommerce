@@ -17,7 +17,7 @@ const HeaderMain = () => {
 	const navItems = [
 		{text: "Home", link: "/", hideInDesktop: false},
 		{text: "Shop Now", link: "/shop", hideInDesktop: false},
-		{text: "Profile", link: "/profile", hideInDesktop: true},
+		{text: "Profile", link: token ? "/profile" : "/login", hideInDesktop: true},
 	];
 
 	const navHandler = () => {

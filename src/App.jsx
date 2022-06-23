@@ -37,7 +37,7 @@ function App() {
 	}, []);
 	useEffect(() => {
 		if (token) {
-			getCartItemServer(dispatch, token);
+			// getCartItemServer(dispatch, token);
 			getWishListServer(dispatch, token);
 		}
 	}, [token]);

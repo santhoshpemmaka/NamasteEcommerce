@@ -1,6 +1,7 @@
 .login-container {
 	grid-area: main;
 	width: 100%;
+	position: relative;
 	.login-component {
 		display: flex;
 		flex-direction: column;
@@ -31,6 +32,12 @@
 		.login-input:focus {
 			border: 2px solid var(--primary-color);
 		}
+		.validate-data {
+			font-size: 1.3rem;
+			padding: 0.5rem;
+			color: red;
+			margin: 0.5rem 0;
+		}
 		.login-password {
 			position: relative;
 			.password-icon {
@@ -38,7 +45,7 @@
 				font-size: 19px;
 				right: 1rem;
 				cursor: pointer;
-                top: 1.5rem;
+				top: 1.5rem;
 			}
 		}
 		.forgot-password {
@@ -52,7 +59,7 @@
 		.forgot-alink {
 			text-decoration: none;
 		}
-		.test-credentails-btn{
+		.test-credentails-btn {
 			background-color: var(--complimentary-text-color);
 			border: 1px solid var(--primary-color);
 			color: var(--primary-color);
@@ -61,10 +68,16 @@
 			letter-spacing: 0.15rem;
 			cursor: pointer;
 		}
-		.test-credentails-btn:hover{
+		.test-credentails-btn:hover {
 			background-color: var(--primary-color);
-			color: var(--complimentary-text-color)
-			
+			color: var(--complimentary-text-color);
+		}
+		.login-message {
+			font-size: 1.4rem;
+			padding: 0.5rem 0;
+			display: block;
+			text-align: center;
+			color: red;
 		}
 		.login-btn {
 			background-color: var(--primary-color);
@@ -87,5 +100,11 @@
 		.login-text > a {
 			color: inherit;
 		}
+	}
+	.loader-dots {
+		position: absolute;
+		top: 20%;
+		left: 40%;
+		transform: translate(50%, 50%);
 	}
 }

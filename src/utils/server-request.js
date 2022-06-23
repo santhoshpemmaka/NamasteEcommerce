@@ -72,6 +72,21 @@ export const addProductToCart = async ({dispatch, product, token}) => {
 	}
 };
 
+export const removeAllItems = async ({dispatch, token}) => {
+	try {
+		const config = {headers: {authorization: token}};
+		const response = await axios.get("/api/user/allitems", config);
+		if (response.status === 200 || response.status === 201) {
+			dispatch({type: "SET_CART", payload: response?.data?.cart});
+			addToCartToast("Order is placed");
+		} else {
+			throw new Error("Failed to placed Order");
+		}
+	} catch (error) {
+		console.log("Err", error);
+	}
+};
+
 export const addProductToWishList = async ({dispatch, product, token}) => {
 	try {
 		const config = {headers: {authorization: token}};

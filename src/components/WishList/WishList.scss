@@ -29,11 +29,22 @@
 		}
 	}
 
-	@media only screen and (max-width: 768px) {
+	@media only screen and (max-width: 1024px) {
 		.grid-4-column-layout-wishlist {
 			grid-template-columns: 1fr 1fr;
 			grid-gap: 1rem;
 			max-width: 45rem;
+		}
+	}
+	@media only screen and (max-width: 768px) {
+		.grid-4-column-layout-wishlist {
+			grid-template-columns: 1fr;
+			grid-gap: 1rem;
+			max-width: 45rem;
+		}
+		.product-listing-card {
+			width: 80%;
+			margin: 0 auto;
 		}
 	}
 }
