@@ -27,6 +27,31 @@ export const getCartItemsHandler = function (schema, request) {
 };
 
 /**
+ * After placing order placing empty cart item and wishlist item
+ 
+ **/
+
+export const removeAllItmemsHandler = function (schema, request) {
+	const userId = requiresAuth.call(this, request);
+	try {
+		if (!userId) {
+			new Response(
+				404,
+				{},
+				{
+					errors: ["The email you entered is not Registered. Not Found error"],
+				}
+			);
+		}
+		this.db.users.update({_id: userId}, {cart: []}, {wishlist: []});
+		return new Response(201, {}, {cart: [], wishlist: []});
+	} catch (err) {
+		console.log("userID not fiund", err);
+	}
+};
+
+/**
+ *
  * This handler handles adding items to user's cart.
  * send POST Request at /api/user/cart
  * body contains {product}

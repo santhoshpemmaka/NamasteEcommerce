@@ -6,6 +6,8 @@ import ItemCard from "./ItemCard";
 import {useOrderSummary} from "./useOrderSummary";
 import Noitems from "../Noitems/Noitems";
 import {useNavigate} from "react-router";
+import {removeAllItems} from "../../utils/server-request";
+import {useAuthentication} from "../../Context/AuthContext";
 
 const CartItem = () => {
 	const {state, dispatch} = useStateContext();
@@ -85,6 +87,9 @@ const ShowPlaceOrderModal = ({
 }) => {
 	const navigate = useNavigate();
 	const orderId = uuid().replaceAll("-", "");
+	const {
+		state: {token},
+	} = useAuthentication();
 	const viewDetailsHandler = (orderId) => {
 		const orderObject = [
 			{
@@ -97,7 +102,7 @@ const ShowPlaceOrderModal = ({
 			type: "ORDER_DETAILS",
 			payload: orderObject,
 		});
-		dispatch({type: "SET_CART", payload: []});
+		removeAllItems({dispatch, token});
 		navigate("/profile/orders");
 	};
 	return (
