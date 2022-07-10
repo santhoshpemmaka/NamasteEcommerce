@@ -13,15 +13,15 @@ const WishList = () => {
 				My WishList
 				<span> {wishlistproducts.length} Items</span>{" "}
 			</h1>
-			{wishlistproducts && wishlistproducts.length === 0 ? (
+			{/* {wishlistproducts && wishlistproducts.length === 0 ? (
 				<Noitems />
-			) : (
-				<div className='grid-4-column-layout-wishlist'>
-					{wishlistproducts.map((product) => (
-						<WishCard product={product} key={product.id} />
-					))}
-				</div>
-			)}
+			) : ( */}
+			<div className='grid-4-column-layout-wishlist'>
+				{wishlistproducts.map((product) => (
+					<WishCard product={product} key={product.id} />
+				))}
+			</div>
+			{/* )} */}
 			<div className='spacer-3rem'></div>
 		</div>
 	);

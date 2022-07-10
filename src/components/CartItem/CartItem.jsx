@@ -24,53 +24,53 @@ const CartItem = () => {
 				My Cart
 				<span>{cartitemproducts.length} items</span>
 			</h1>
-			{cartitemproducts.length === 0 ? (
+			{/* {cartitemproducts.length === 0 ? (
 				<Noitems />
-			) : (
-				<div className='cartitem-component'>
-					<div className='cartitem-items'>
-						{cartitemproducts.map((cartItem) => (
-							<ItemCard cartItem={cartItem} key={cartItem.id} />
-						))}
-					</div>
-					{cartitemproducts && cartitemproducts.length > 0 && (
-						<div className='cartitem-display-cost'>
-							<label className='cartitem-cost-heading'>PRICE DETAILS</label>
-							<div className='cartitem-cost-detail'>
-								<span>Total MRP</span>
-								<span>Rs.{total}</span>
-							</div>
-							<div className='cartitem-cost-detail'>
-								<span>Discount on MRP</span>
-								<span className='card-cost-discount'>- Rs. {discount}</span>
-							</div>
-							<div className='cartitem-cost-detail'>
-								<span>Convenience Fee</span>
-								<span className='card-cost-discount'>
-									<span> Rs. 99 </span>Free{" "}
-								</span>
-							</div>
-							<div className='cartitem-cost-total'>
-								<span>Total Amount</span>
-								<span>Rs. {cartTotal}</span>
-							</div>
-							<button
-								className='cartitem-order-btn'
-								onClick={() => placeOrderHandler()}>
-								PLACE ORDER
-							</button>
-						</div>
-					)}
-					{showPlaceOrder && (
-						<ShowPlaceOrderModal
-							state={state}
-							totalAmount={cartTotal}
-							setshowPlaceOrder={setshowPlaceOrder}
-							dispatch={dispatch}
-						/>
-					)}
+			) : ( */}
+			<div className='cartitem-component'>
+				<div className='cartitem-items'>
+					{cartitemproducts.map((cartItem) => (
+						<ItemCard cartItem={cartItem} key={cartItem.id} />
+					))}
 				</div>
-			)}
+				{cartitemproducts && cartitemproducts.length > 0 && (
+					<div className='cartitem-display-cost'>
+						<label className='cartitem-cost-heading'>PRICE DETAILS</label>
+						<div className='cartitem-cost-detail'>
+							<span>Total MRP</span>
+							<span>Rs.{total}</span>
+						</div>
+						<div className='cartitem-cost-detail'>
+							<span>Discount on MRP</span>
+							<span className='card-cost-discount'>- Rs. {discount}</span>
+						</div>
+						<div className='cartitem-cost-detail'>
+							<span>Convenience Fee</span>
+							<span className='card-cost-discount'>
+								<span> Rs. 99 </span>Free{" "}
+							</span>
+						</div>
+						<div className='cartitem-cost-total'>
+							<span>Total Amount</span>
+							<span>Rs. {cartTotal}</span>
+						</div>
+						<button
+							className='cartitem-order-btn'
+							onClick={() => placeOrderHandler()}>
+							PLACE ORDER
+						</button>
+					</div>
+				)}
+				{showPlaceOrder && (
+					<ShowPlaceOrderModal
+						state={state}
+						totalAmount={cartTotal}
+						setshowPlaceOrder={setshowPlaceOrder}
+						dispatch={dispatch}
+					/>
+				)}
+			</div>
+			{/* )} */}
 			<div className='spacer-3rem'></div>
 			<div className='spacer-3rem'></div>
 		</div>
