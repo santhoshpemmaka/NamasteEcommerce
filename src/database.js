@@ -1,4 +1,5 @@
 import {
+	product0,
 	product1,
 	product2,
 	product3,
@@ -43,7 +44,7 @@ export const sliderImages = [
 	{
 		title: "First Slider Image",
 		description: "This is the first image",
-		urls: product2,
+		urls: product0,
 	},
 	{
 		title: "second Slider Image",
@@ -53,7 +54,7 @@ export const sliderImages = [
 	{
 		title: "third Slider Image",
 		description: "This is the first image",
-		urls: product2,
+		urls: product0,
 	},
 	{
 		title: "Fourth Slider Image",

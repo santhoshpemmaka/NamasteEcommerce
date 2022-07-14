@@ -1,3 +1,4 @@
+import product0 from "./product0.avif";
 import product1 from "./product1.webp";
 import product2 from "./product2.jpg";
 import product3 from "./product3.jpg";
@@ -15,6 +16,7 @@ import product14 from "./product14.jpg";
 import product15 from "./product15.jpg";
 
 export {
+	product0,
 	product1,
 	product2,
 	product3,
